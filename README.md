@@ -6,7 +6,8 @@
 ## 🗺️ Network Architecture
 ![Network Diagram](network-architecture.png)
 
-graph TD
+```mermaid
+graph TD 
 
     subgraph Internet_Zone["🌐 Internet Zone"]
         ISP[ISP / Internet]
