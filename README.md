@@ -4,7 +4,6 @@
 โปรเจกต์นี้เป็นการออกแบบและจำลองเครือข่ายระดับองค์กรโดยใช้ Huawei eNSP เพื่อทดสอบการทำงานของ OSPF Routing และ VLAN Segmentation
 
 ## 🗺️ Network Architecture
-![Network Diagram](network-architecture.png)
 
 ```mermaid
 graph TD
