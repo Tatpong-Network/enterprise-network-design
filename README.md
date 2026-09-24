@@ -6,6 +6,48 @@
 ## 🗺️ Network Architecture
 ![Network Diagram](network-architecture.png)
 
+graph TD
+    subgraph Internet_Zone["🌐 Internet Zone"]
+        ISP[ISP / Internet]
+    end
+
+    subgraph Security_Zone["🔥 Security Zone"]
+        FW[Firewall<br/>USG6000V]
+    end
+
+    subgraph Core_Zone["⚙️ Core Zone"]
+        R1[Router<br/>AR2220<br/>10.0.0.1/30]
+        CS[Core Switch<br/>S5700<br/>10.0.0.2/30]
+    end
+
+    subgraph Access_Zone["🔀 Access Zone"]
+        ASW1[Access Switch 1<br/>VLAN 10 - IT]
+        ASW2[Access Switch 2<br/>VLAN 20 - HR]
+        ASW3[Access Switch 3<br/>VLAN 30 - Guest]
+    end
+
+    subgraph End_Devices["💻 End Devices"]
+        PC1[PC - IT<br/>192.168.10.10]
+        PC2[PC - HR<br/>192.168.20.10]
+        PC3[PC - Guest<br/>192.168.30.10]
+    end
+
+    ISP --> FW
+    FW --> R1
+    R1 -->|OSPF Area 0| CS
+    CS --> ASW1
+    CS --> ASW2
+    CS --> ASW3
+    ASW1 --> PC1
+    ASW2 --> PC2
+    ASW3 --> PC3
+
+    style Internet_Zone fill:#e1f5ff
+    style Security_Zone fill:#ffe1e1
+    style Core_Zone fill:#fff4e1
+    style Access_Zone fill:#e1ffe1
+    style End_Devices fill:#f0e1ff
+
 ## 🛠️ อุปกรณ์ที่ใช้
 - Router: AR2220
 - Firewall: USG6000V
