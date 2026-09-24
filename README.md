@@ -7,10 +7,11 @@
 ![Network Diagram](network-architecture.png)
 
 graph TD
+
     subgraph Internet_Zone["🌐 Internet Zone"]
         ISP[ISP / Internet]
     end
-
+    
     subgraph Security_Zone["🔥 Security Zone"]
         FW[Firewall<br/>USG6000V]
     end
